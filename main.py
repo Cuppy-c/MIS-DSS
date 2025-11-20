@@ -11,6 +11,10 @@ import joblib
 import openai
 from datetime import datetime
 import warnings
+from matplotlib.font_manager import FontProperties
+
+font_path = "NotoSansCJK-Regular.ttf"  # 或使用绝对路径
+custom_font = FontProperties(fname=font_path)
 
 def set_chinese_font():
     """设置中文字体"""
