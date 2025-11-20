@@ -362,9 +362,9 @@ elif page == "模型训练":
                         st.session_state.model_type = problem_type
 
                         feature_importance_df = pd.DataFrame({
-                            "特征": feature_order,
-                            "重要性": model.feature_importances_
-                        }).sort_values("重要性", ascending=False)
+                            "feature": feature_order,
+                            "importance": model.feature_importances_
+                        }).sort_values("importance", ascending=False)
 
                         st.session_state.feature_importances = feature_importance_df
                         st.session_state.metrics = metrics
@@ -421,8 +421,8 @@ elif page == "模型训练":
 
                 fig, ax = plt.subplots(figsize=(10, 6))
                 top_features = st.session_state.feature_importances.head(10)
-                sns.barplot(x="重要性", y="特征", data=top_features, ax=ax)
-                ax.set_title('Top 10 特征重要性')
+                sns.barplot(x="importance", y="feature", data=top_features, ax=ax)
+                ax.set_title('Top 10 importance of feature')
                 st.pyplot(fig)
 
 elif page == "预测分析":
