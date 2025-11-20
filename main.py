@@ -393,8 +393,8 @@ elif page == "模型训练":
                     sns.heatmap(cm, annot=True, fmt='d', ax=ax,
                                 xticklabels=np.unique(y),
                                 yticklabels=np.unique(y))
-                    ax.set_xlabel('预测标签')
-                    ax.set_ylabel('真实标签')
+                    ax.set_xlabel('predicted_label')
+                    ax.set_ylabel('real_label')
                     st.pyplot(fig)
 
                 else:
@@ -411,9 +411,9 @@ elif page == "模型训练":
                     ax.plot([st.session_state.y_test.min(), st.session_state.y_test.max()],
                             [st.session_state.y_test.min(), st.session_state.y_test.max()],
                             'k--', lw=2)
-                    ax.set_xlabel("真实值")
-                    ax.set_ylabel('预测值')
-                    ax.set_title('真实值 vs 预测值')
+                    ax.set_xlabel('true_value')
+                    ax.set_ylabel('predicted_value')
+                    ax.set_title('true vs predicted')
                     st.pyplot(fig)
 
                 st.subheader("特征重要性")
@@ -421,8 +421,8 @@ elif page == "模型训练":
 
                 fig, ax = plt.subplots(figsize=(10, 6))
                 top_features = st.session_state.feature_importances.head(10)
-                sns.barplot(x="重要性", y="特征", data=top_features, ax=ax)
-                ax.set_title('Top 10 特征重要性')
+                sns.barplot(x="importance", y="feature", data=top_features, ax=ax)
+                ax.set_title('Top 10 importance of feature')
                 st.pyplot(fig)
 
 elif page == "预测分析":
