@@ -11,10 +11,6 @@ import joblib
 import openai
 from datetime import datetime
 import warnings
-from matplotlib.font_manager import FontProperties
-
-font_path = "NotoSansCJK-Regular.ttf"  # 或使用绝对路径
-custom_font = FontProperties(fname=font_path)
 
 def set_chinese_font():
     """设置中文字体"""
@@ -397,8 +393,8 @@ elif page == "模型训练":
                     sns.heatmap(cm, annot=True, fmt='d', ax=ax,
                                 xticklabels=np.unique(y),
                                 yticklabels=np.unique(y))
-                    ax.set_xlabel('预测标签', fontproperties=custom_font)
-                    ax.set_ylabel('真实标签', fontproperties=custom_font)
+                    ax.set_xlabel('预测标签')
+                    ax.set_ylabel('真实标签')
                     st.pyplot(fig)
 
                 else:
@@ -415,9 +411,9 @@ elif page == "模型训练":
                     ax.plot([st.session_state.y_test.min(), st.session_state.y_test.max()],
                             [st.session_state.y_test.min(), st.session_state.y_test.max()],
                             'k--', lw=2)
-                    ax.set_xlabel("真实值", fontproperties=custom_font)
-                    ax.set_ylabel('预测值', fontproperties=custom_font)
-                    ax.set_title('真实值 vs 预测值', fontproperties=custom_font)
+                    ax.set_xlabel("真实值")
+                    ax.set_ylabel('预测值')
+                    ax.set_title('真实值 vs 预测值')
                     st.pyplot(fig)
 
                 st.subheader("特征重要性")
@@ -425,8 +421,8 @@ elif page == "模型训练":
 
                 fig, ax = plt.subplots(figsize=(10, 6))
                 top_features = st.session_state.feature_importances.head(10)
-                sns.barplot(x="重要性", y="特征", data=top_features, ax=ax, fontproperties=custom_font)
-                ax.set_title('Top 10 特征重要性', fontproperties=custom_font)
+                sns.barplot(x="重要性", y="特征", data=top_features, ax=ax)
+                ax.set_title('Top 10 特征重要性')
                 st.pyplot(fig)
 
 elif page == "预测分析":
@@ -501,11 +497,11 @@ elif page == "预测分析":
                             class_names = model.classes_
 
                         ax.bar(range(len(proba[0])), proba[0])
-                        ax.set_xlabel('类别', fontproperties=custom_font)
-                        ax.set_ylabel('概率', fontproperties=custom_font)
+                        ax.set_xlabel('类别')
+                        ax.set_ylabel('概率')
                         ax.set_xticks(range(len(class_names)))
                         ax.set_xticklabels(class_names, rotation=45)
-                        ax.set_title('各类别预测概率', fontproperties=custom_font)
+                        ax.set_title('各类别预测概率')
                         st.pyplot(fig)
 
                     else:
