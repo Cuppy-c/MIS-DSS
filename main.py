@@ -421,8 +421,8 @@ elif page == "模型训练":
 
                 fig, ax = plt.subplots(figsize=(10, 6))
                 top_features = st.session_state.feature_importances.head(10)
-                sns.barplot(x="importance", y="feature", data=top_features, ax=ax)
-                ax.set_title('Top 10 importance of feature')
+                sns.barplot(x="重要性", y="特征", data=top_features, ax=ax)
+                ax.set_title('Top 10 特征重要性')
                 st.pyplot(fig)
 
 elif page == "预测分析":
