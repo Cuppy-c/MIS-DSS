@@ -1,8 +1,5 @@
-matplotlib.pyplot
+matplotlib
 seaborn
-sklearn.model_selection
-sklearn.ensemble
-sklearn.metrics
-sklearn.preprocessing
+scikit-learn
 openai
 joblib
